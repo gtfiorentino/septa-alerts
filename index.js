@@ -21,14 +21,14 @@ async function main() {
 // for each train in Train View
 async function getScheduleData(trainView) {
   const trainDataRequests = trainView
-      .map(async t => {
-        const trainStops = await fetchJson(`${SCHEDULE_URL}/${t.trainno}`);
+    .map(async t => {
+      const trainStops = await fetchJson(`${SCHEDULE_URL}/${t.trainno}`);
 
-        return {
-          ...t,
-          trainStops,
-        };
-      });
+      return {
+        ...t,
+        trainStops,
+      };
+    });
 
     trainData = await Promise.all(trainDataRequests);
 
