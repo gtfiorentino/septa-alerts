@@ -21,7 +21,6 @@ async function main() {
 // for each train in Train View
 async function getScheduleData(trainView) {
   const trainDataRequests = trainView
-      .filter(t => t.late > 0)
       .map(async t => {
         const trainStops = await fetchJson(`${SCHEDULE_URL}/${t.trainno}`);
 
